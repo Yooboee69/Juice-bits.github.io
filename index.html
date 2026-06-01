@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,7 +25,22 @@ overflow-x:hidden;
 color:white;
 }
 
-/* INTRO SCREEN */
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-track{
+background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+background:#72ff72;
+border-radius:20px;
+}
+
+/* INTRO */
 
 .intro{
 position:fixed;
@@ -35,7 +51,6 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
 overflow:hidden;
 z-index:9999;
 transition:1.5s ease;
@@ -46,7 +61,7 @@ position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-filter:blur(18px) brightness(0.35);
+filter:blur(22px) brightness(0.3);
 transform:scale(1.1);
 }
 
@@ -55,7 +70,7 @@ content:'';
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.5);
 z-index:1;
 }
 
@@ -64,12 +79,13 @@ position:relative;
 z-index:2;
 text-align:center;
 animation:fadeUp 2s ease;
+padding:20px;
 }
 
 .intro h1{
 font-size:clamp(4rem,8vw,9rem);
 letter-spacing:8px;
-text-shadow:0 0 25px rgba(255,255,255,0.15);
+text-shadow:0 0 30px rgba(255,255,255,0.15);
 }
 
 .intro h2{
@@ -80,28 +96,28 @@ letter-spacing:5px;
 text-shadow:0 0 20px rgba(114,255,114,0.5);
 }
 
-/* BUTTON */
-
 .enter-btn{
 margin-top:50px;
 padding:18px 60px;
-font-size:1.3rem;
+font-size:1.2rem;
+letter-spacing:4px;
+border:none;
+outline:none;
 background:rgba(114,255,114,0.08);
 border:1px solid rgba(114,255,114,0.4);
 color:#72ff72;
+border-radius:14px;
 cursor:pointer;
-backdrop-filter:blur(10px);
 transition:0.4s;
-letter-spacing:3px;
 font-family:'Oswald',sans-serif;
-border-radius:12px;
+backdrop-filter:blur(12px);
 }
 
 .enter-btn:hover{
 transform:scale(1.05);
 background:#72ff72;
 color:black;
-box-shadow:0 0 40px rgba(114,255,114,0.3);
+box-shadow:0 0 45px rgba(114,255,114,0.3);
 }
 
 /* MAIN SITE */
@@ -112,7 +128,7 @@ pointer-events:none;
 transition:1.5s ease;
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
 position:fixed;
@@ -126,11 +142,11 @@ align-items:center;
 background:rgba(0,0,0,0.35);
 backdrop-filter:blur(14px);
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.06);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:1.8rem;
+font-size:1.7rem;
 font-weight:700;
 letter-spacing:3px;
 color:#72ff72;
@@ -138,7 +154,7 @@ color:#72ff72;
 
 nav ul{
 display:flex;
-gap:50px;
+gap:45px;
 list-style:none;
 }
 
@@ -171,7 +187,7 @@ position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-filter:blur(4px) brightness(0.4);
+filter:blur(5px) brightness(0.4);
 transform:scale(1.08);
 }
 
@@ -183,7 +199,7 @@ height:100%;
 background:linear-gradient(
 to bottom,
 rgba(0,0,0,0.1),
-rgba(0,0,0,0.45),
+rgba(0,0,0,0.55),
 #050505
 );
 z-index:1;
@@ -192,7 +208,6 @@ z-index:1;
 .overlay{
 position:relative;
 z-index:2;
-max-width:1200px;
 padding:0 5%;
 }
 
@@ -201,6 +216,7 @@ font-size:clamp(4rem,8vw,8rem);
 font-weight:700;
 letter-spacing:7px;
 line-height:1;
+text-shadow:0 0 30px rgba(255,255,255,0.12);
 }
 
 .sub-title{
@@ -208,6 +224,7 @@ font-size:clamp(1.5rem,3vw,3rem);
 color:#72ff72;
 margin-top:20px;
 letter-spacing:5px;
+text-shadow:0 0 20px rgba(114,255,114,0.4);
 }
 
 /* SECTION */
@@ -228,20 +245,21 @@ letter-spacing:3px;
 font-size:1.2rem;
 line-height:2;
 color:#bdbdbd;
-max-width:900px;
+max-width:950px;
 }
 
-/* PROJECTS */
+/* PROJECT CARD */
 
 .project-card{
 display:grid;
 grid-template-columns:1fr 1fr;
 background:#0b0b0b;
 margin-bottom:60px;
-border-radius:22px;
+border-radius:24px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
 transition:0.4s;
+box-shadow:0 0 25px rgba(0,0,0,0.3);
 }
 
 .project-card:hover{
@@ -252,8 +270,13 @@ box-shadow:0 0 50px rgba(114,255,114,0.08);
 .project-card img{
 width:100%;
 height:100%;
-object-fit:cover;
 min-height:400px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.project-card:hover img{
+transform:scale(1.03);
 }
 
 .project-info{
@@ -270,16 +293,21 @@ color:#72ff72;
 }
 
 .project-info p{
-color:#9f9f9f;
 line-height:1.8;
+color:#9f9f9f;
 margin-bottom:25px;
 }
 
 .project-info a{
-text-decoration:none;
 color:#72ff72;
-font-size:1.2rem;
+text-decoration:none;
+font-size:1.1rem;
 margin:10px 0;
+transition:0.3s;
+}
+
+.project-info a:hover{
+padding-left:10px;
 }
 
 /* SERVER */
@@ -287,19 +315,26 @@ margin:10px 0;
 .server-box{
 background:#0b0b0b;
 border:1px solid rgba(255,255,255,0.05);
-border-radius:20px;
+border-radius:22px;
 padding:50px;
 }
 
 .server-box a{
 color:#72ff72;
+font-size:1.4rem;
 text-decoration:none;
-font-size:1.5rem;
 }
 
 .server-box p{
 margin-top:20px;
 color:#b0b0b0;
+line-height:1.8;
+}
+
+.discord-widget{
+margin-top:35px;
+border-radius:20px;
+overflow:hidden;
 }
 
 /* FOOTER */
@@ -309,11 +344,15 @@ padding:80px 20px;
 text-align:center;
 color:#888;
 line-height:2;
-margin-top:100px;
 border-top:1px solid rgba(255,255,255,0.05);
+margin-top:100px;
 }
 
-/* ANIMATION */
+footer span{
+color:#72ff72;
+}
+
+/* ANIM */
 
 @keyframes fadeUp{
 
@@ -324,7 +363,7 @@ transform:translateY(40px);
 
 100%{
 opacity:1;
-transform:translateY(0);
+transform:translateY(0px);
 }
 
 }
@@ -337,28 +376,44 @@ nav{
 padding:18px 20px;
 }
 
-nav ul{
-gap:18px;
-}
-
 .logo{
 font-size:1rem;
 }
 
+nav ul{
+gap:18px;
+}
+
+nav a{
+font-size:0.8rem;
+}
+
 .main-title{
-font-size:3.5rem;
+font-size:3.4rem;
 }
 
 .sub-title{
-font-size:1.5rem;
+font-size:1.4rem;
 }
 
 .project-card{
 grid-template-columns:1fr;
 }
 
+.project-card img{
+min-height:260px;
+}
+
 .project-info{
 padding:35px;
+}
+
+.project-info h3{
+font-size:2rem;
+}
+
+.section-title{
+font-size:2rem;
 }
 
 section{
@@ -407,7 +462,7 @@ JUICE & BITS LABS
 <li><a href="#">HOME</a></li>
 <li><a href="#works">WORKS</a></li>
 <li><a href="#server">SERVER</a></li>
-<li><a href="#">CONTACT</a></li>
+<li><a href="https://youtube.com/@anti_spiral_mc?si=VK4hOmcjmBGAiRXZ" target="_blank">YOUTUBE</a></li>
 </ul>
 
 </nav>
@@ -443,9 +498,12 @@ ABOUT ME ?
 <p>
 I'M ANTI SPIRAL — shader and atmosphere developer inside the Minecraft community.
 
-I focus on cinematic skies, volumetric fog, environmental mood, distant lighting and dreamlike worlds.
+I focus on cinematic skies, volumetric fog, environmental mood, distant lighting, surreal worlds and experimental rendering systems.
 
 Minecraft is simple, and that simplicity is what makes atmosphere powerful.
+
+This is not just graphics work.  
+It's about creating worlds that feel ancient, silent and alive.
 </p>
 
 </section>
@@ -458,24 +516,51 @@ Minecraft is simple, and that simplicity is what makes atmosphere powerful.
 MY WORKS
 </div>
 
+<!-- YOUTUBE -->
+
+<div class="project-card">
+
+<img src="https://yt3.googleusercontent.com/ytc/AIdro_m-placeholder=s900-c-k-c0x00ffffff-no-rj">
+
+<div class="project-info">
+
+<h3>YOUTUBE</h3>
+
+<p>
+Shader showcases, atmospheric experiments, cinematic visuals and Minecraft rendering projects.
+</p>
+
+<a href="https://youtube.com/@anti_spiral_mc?si=VK4hOmcjmBGAiRXZ" target="_blank">
+VISIT CHANNEL —
+</a>
+
+</div>
+
+</div>
+
+<!-- MCPEDL -->
+
 <div class="project-card">
 
 <img src="project1.png">
 
 <div class="project-info">
 
-<h3>PROJECT 01</h3>
+<h3>MCPEDL</h3>
 
 <p>
-Volumetric lighting and atmospheric shader experiments.
+Minecraft Bedrock shader releases and experimental visual projects.
 </p>
 
-<a href="#">LINK —</a>
-<a href="#">DOWNLOAD —</a>
+<a href="https://mcpedl.com/antispira1/" target="_blank">
+OPEN MCPEDL —
+</a>
 
 </div>
 
 </div>
+
+<!-- PATREON -->
 
 <div class="project-card">
 
@@ -483,14 +568,59 @@ Volumetric lighting and atmospheric shader experiments.
 
 <div class="project-info">
 
-<h3>NEXT PROJECT</h3>
+<h3>PATREON</h3>
 
 <p>
-Dreamlike shader environment with abandoned visual style.
+Support future shader development, rendering research and cinematic atmosphere projects.
 </p>
 
-<a href="#">LINK —</a>
-<a href="#">DOWNLOAD —</a>
+<a href="https://www.patreon.com/cw/Antispiral0" target="_blank">
+SUPPORT —
+</a>
+
+</div>
+
+</div>
+
+<!-- CURSEFORGE -->
+
+<div class="project-card">
+
+<img src="background.png">
+
+<div class="project-info">
+
+<h3>CURSEFORGE</h3>
+
+<p>
+Project uploads, shader experiments and community releases.
+</p>
+
+<a href="https://legacy.curseforge.com/members/antiispiral/followers" target="_blank">
+OPEN PAGE —
+</a>
+
+</div>
+
+</div>
+
+<!-- MODRINTH -->
+
+<div class="project-card">
+
+<img src="background.png">
+
+<div class="project-info">
+
+<h3>MODRINTH</h3>
+
+<p>
+Modern distribution platform for future shader releases and rendering experiments.
+</p>
+
+<a href="https://modrinth.com/dashboard" target="_blank">
+OPEN MODRINTH —
+</a>
 
 </div>
 
@@ -508,13 +638,26 @@ OUR SERVER
 
 <div class="server-box">
 
-<a href="#">
-discord.gg/your-server
+<a href="https://discord.gg/GHhaWnztXf" target="_blank">
+discord.gg/GHhaWnztXf
 </a>
 
 <p>
-Join the Juice & Bits community.
+Join the Juice & Bits community.  
+Shaders, rendering, atmosphere experiments and Minecraft visual development.
 </p>
+
+<div class="discord-widget">
+
+<iframe
+src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
+width="100%"
+height="350"
+allowtransparency="true"
+frameborder="0">
+</iframe>
+
+</div>
 
 </div>
 
@@ -526,13 +669,11 @@ Join the Juice & Bits community.
 
 Copyright 2026 by Juice&bits community
 <br>
-Under <span style="color:#72ff72;">ANTISPIRAL</span>
+Under <span>ANTISPIRAL</span>
 
 </footer>
 
 </div>
-
-<!-- SCRIPT -->
 
 <script>
 
