@@ -19,7 +19,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:black;
+background:#050505;
 font-family:'Oswald',sans-serif;
 overflow-x:hidden;
 color:white;
@@ -54,15 +54,17 @@ align-items:center;
 overflow:hidden;
 z-index:9999;
 transition:1.5s ease;
+background:black;
 }
 
 .intro img{
 position:absolute;
 width:100%;
 height:100%;
-object-fit:cover;
-filter:blur(22px) brightness(0.3);
-transform:scale(1.1);
+object-fit:contain;
+background:black;
+filter:blur(14px) brightness(0.35);
+transform:scale(1.02);
 }
 
 .intro::before{
@@ -70,7 +72,7 @@ content:'';
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.45);
 z-index:1;
 }
 
@@ -78,49 +80,48 @@ z-index:1;
 position:relative;
 z-index:2;
 text-align:center;
-animation:fadeUp 2s ease;
 padding:20px;
+animation:fadeUp 1.8s ease;
 }
 
 .intro h1{
-font-size:clamp(4rem,8vw,9rem);
+font-size:clamp(4rem,8vw,8rem);
 letter-spacing:8px;
-text-shadow:0 0 30px rgba(255,255,255,0.15);
+line-height:1;
+text-shadow:0 0 30px rgba(255,255,255,0.12);
 }
 
 .intro h2{
 font-size:clamp(1.5rem,3vw,3rem);
-color:#72ff72;
 margin-top:20px;
+color:#72ff72;
 letter-spacing:5px;
-text-shadow:0 0 20px rgba(114,255,114,0.5);
+text-shadow:0 0 20px rgba(114,255,114,0.4);
 }
 
 .enter-btn{
 margin-top:50px;
 padding:18px 60px;
-font-size:1.2rem;
+font-size:1.1rem;
 letter-spacing:4px;
-border:none;
-outline:none;
 background:rgba(114,255,114,0.08);
 border:1px solid rgba(114,255,114,0.4);
 color:#72ff72;
-border-radius:14px;
 cursor:pointer;
+border-radius:14px;
 transition:0.4s;
 font-family:'Oswald',sans-serif;
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 }
 
 .enter-btn:hover{
-transform:scale(1.05);
 background:#72ff72;
 color:black;
-box-shadow:0 0 45px rgba(114,255,114,0.3);
+transform:scale(1.05);
+box-shadow:0 0 40px rgba(114,255,114,0.25);
 }
 
-/* MAIN SITE */
+/* MAIN */
 
 .main-site{
 opacity:0;
@@ -180,15 +181,17 @@ justify-content:center;
 align-items:center;
 text-align:center;
 overflow:hidden;
+background:black;
 }
 
 .hero img{
 position:absolute;
 width:100%;
 height:100%;
-object-fit:cover;
-filter:blur(5px) brightness(0.4);
-transform:scale(1.08);
+object-fit:contain;
+background:black;
+filter:blur(2px) brightness(0.45);
+transform:scale(1.02);
 }
 
 .hero::before{
@@ -198,7 +201,7 @@ width:100%;
 height:100%;
 background:linear-gradient(
 to bottom,
-rgba(0,0,0,0.1),
+rgba(0,0,0,0.05),
 rgba(0,0,0,0.55),
 #050505
 );
@@ -221,8 +224,8 @@ text-shadow:0 0 30px rgba(255,255,255,0.12);
 
 .sub-title{
 font-size:clamp(1.5rem,3vw,3rem);
-color:#72ff72;
 margin-top:20px;
+color:#72ff72;
 letter-spacing:5px;
 text-shadow:0 0 20px rgba(114,255,114,0.4);
 }
@@ -321,7 +324,7 @@ padding:50px;
 
 .server-box a{
 color:#72ff72;
-font-size:1.4rem;
+font-size:1.3rem;
 text-decoration:none;
 }
 
@@ -344,8 +347,8 @@ padding:80px 20px;
 text-align:center;
 color:#888;
 line-height:2;
-border-top:1px solid rgba(255,255,255,0.05);
 margin-top:100px;
+border-top:1px solid rgba(255,255,255,0.05);
 }
 
 footer span{
@@ -373,51 +376,123 @@ transform:translateY(0px);
 @media(max-width:900px){
 
 nav{
-padding:18px 20px;
+padding:14px 16px;
+flex-direction:column;
+gap:12px;
 }
 
 .logo{
 font-size:1rem;
+text-align:center;
 }
 
 nav ul{
-gap:18px;
+gap:14px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 nav a{
-font-size:0.8rem;
+font-size:0.72rem;
+letter-spacing:1px;
+}
+
+.hero{
+padding-top:120px;
 }
 
 .main-title{
-font-size:3.4rem;
+font-size:2.6rem;
+line-height:1.1;
+letter-spacing:3px;
+padding:0 10px;
 }
 
 .sub-title{
-font-size:1.4rem;
+font-size:1.1rem;
+letter-spacing:2px;
+padding:0 10px;
+}
+
+.intro h1{
+font-size:2.7rem;
+letter-spacing:3px;
+line-height:1.1;
+}
+
+.intro h2{
+font-size:1.1rem;
+letter-spacing:2px;
+}
+
+.enter-btn{
+padding:14px 34px;
+font-size:0.95rem;
+margin-top:35px;
+}
+
+section{
+padding:70px 6%;
+}
+
+.section-title{
+font-size:1.6rem;
+margin-bottom:25px;
+padding-left:12px;
+}
+
+.about p{
+font-size:0.95rem;
+line-height:1.9;
 }
 
 .project-card{
 grid-template-columns:1fr;
+border-radius:18px;
+margin-bottom:35px;
 }
 
 .project-card img{
-min-height:260px;
+min-height:220px;
+max-height:280px;
+object-fit:cover;
 }
 
 .project-info{
-padding:35px;
+padding:25px;
 }
 
 .project-info h3{
-font-size:2rem;
+font-size:1.7rem;
+margin-bottom:16px;
 }
 
-.section-title{
-font-size:2rem;
+.project-info p{
+font-size:0.92rem;
+line-height:1.7;
 }
 
-section{
-padding:90px 7%;
+.project-info a{
+font-size:0.95rem;
+}
+
+.server-box{
+padding:25px;
+}
+
+.server-box a{
+font-size:1rem;
+word-break:break-word;
+}
+
+.discord-widget iframe{
+height:260px;
+}
+
+footer{
+font-size:0.8rem;
+padding:50px 20px;
+line-height:1.8;
 }
 
 }
@@ -462,7 +537,7 @@ JUICE & BITS LABS
 <li><a href="#">HOME</a></li>
 <li><a href="#works">WORKS</a></li>
 <li><a href="#server">SERVER</a></li>
-<li><a href="https://youtube.com/@anti_spiral_mc?si=VK4hOmcjmBGAiRXZ" target="_blank">YOUTUBE</a></li>
+<li><a href="#socials">LINKS</a></li>
 </ul>
 
 </nav>
@@ -516,51 +591,25 @@ It's about creating worlds that feel ancient, silent and alive.
 MY WORKS
 </div>
 
-<!-- YOUTUBE -->
-
-<div class="project-card">
-
-<img src="https://yt3.googleusercontent.com/ytc/AIdro_m-placeholder=s900-c-k-c0x00ffffff-no-rj">
-
-<div class="project-info">
-
-<h3>YOUTUBE</h3>
-
-<p>
-Shader showcases, atmospheric experiments, cinematic visuals and Minecraft rendering projects.
-</p>
-
-<a href="https://youtube.com/@anti_spiral_mc?si=VK4hOmcjmBGAiRXZ" target="_blank">
-VISIT CHANNEL —
-</a>
-
-</div>
-
-</div>
-
-<!-- MCPEDL -->
-
 <div class="project-card">
 
 <img src="project1.png">
 
 <div class="project-info">
 
-<h3>MCPEDL</h3>
+<h3>PROJECT 01</h3>
 
 <p>
-Minecraft Bedrock shader releases and experimental visual projects.
+Volumetric lighting and cinematic atmospheric rendering experiments.
 </p>
 
-<a href="https://mcpedl.com/antispira1/" target="_blank">
-OPEN MCPEDL —
+<a href="#">
+VIEW PROJECT —
 </a>
 
 </div>
 
 </div>
-
-<!-- PATREON -->
 
 <div class="project-card">
 
@@ -568,58 +617,14 @@ OPEN MCPEDL —
 
 <div class="project-info">
 
-<h3>PATREON</h3>
+<h3>NEXT PROJECT</h3>
 
 <p>
-Support future shader development, rendering research and cinematic atmosphere projects.
+Dreamlike shader environment inspired by silence and abandoned worlds.
 </p>
 
-<a href="https://www.patreon.com/cw/Antispiral0" target="_blank">
-SUPPORT —
-</a>
-
-</div>
-
-</div>
-
-<!-- CURSEFORGE -->
-
-<div class="project-card">
-
-<img src="background.png">
-
-<div class="project-info">
-
-<h3>CURSEFORGE</h3>
-
-<p>
-Project uploads, shader experiments and community releases.
-</p>
-
-<a href="https://legacy.curseforge.com/members/antiispiral/followers" target="_blank">
-OPEN PAGE —
-</a>
-
-</div>
-
-</div>
-
-<!-- MODRINTH -->
-
-<div class="project-card">
-
-<img src="background.png">
-
-<div class="project-info">
-
-<h3>MODRINTH</h3>
-
-<p>
-Modern distribution platform for future shader releases and rendering experiments.
-</p>
-
-<a href="https://modrinth.com/dashboard" target="_blank">
-OPEN MODRINTH —
+<a href="#">
+VIEW PROJECT —
 </a>
 
 </div>
@@ -656,6 +661,104 @@ height="350"
 allowtransparency="true"
 frameborder="0">
 </iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LINKS -->
+
+<section id="socials">
+
+<div class="section-title">
+LINKS
+</div>
+
+<!-- YOUTUBE -->
+
+<div class="project-card">
+
+<img src="background.png">
+
+<div class="project-info">
+
+<h3>YOUTUBE</h3>
+
+<p>
+Shader showcases, cinematic environments and atmosphere experiments.
+</p>
+
+<a href="https://youtube.com/@anti_spiral_mc?si=VK4hOmcjmBGAiRXZ" target="_blank">
+OPEN CHANNEL —
+</a>
+
+</div>
+
+</div>
+
+<!-- PATREON -->
+
+<div class="project-card">
+
+<img src="project1.png">
+
+<div class="project-info">
+
+<h3>PATREON</h3>
+
+<p>
+Support future shader development and rendering experiments.
+</p>
+
+<a href="https://www.patreon.com/cw/Antispiral0" target="_blank">
+SUPPORT —
+</a>
+
+</div>
+
+</div>
+
+<!-- MCPEDL -->
+
+<div class="project-card">
+
+<img src="project2.png">
+
+<div class="project-info">
+
+<h3>MCPEDL</h3>
+
+<p>
+Minecraft Bedrock shader releases and projects.
+</p>
+
+<a href="https://mcpedl.com/antispira1/" target="_blank">
+OPEN PAGE —
+</a>
+
+</div>
+
+</div>
+
+<!-- CURSEFORGE -->
+
+<div class="project-card">
+
+<img src="background.png">
+
+<div class="project-info">
+
+<h3>CURSEFORGE</h3>
+
+<p>
+Project uploads and shader experiments.
+</p>
+
+<a href="https://legacy.curseforge.com/members/antiispiral/followers" target="_blank">
+OPEN PAGE —
+</a>
 
 </div>
 
