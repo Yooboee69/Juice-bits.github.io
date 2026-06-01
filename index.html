@@ -7,9 +7,13 @@
 
 <title>JUICE & BITS LABS</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+RESET
+========================= */
 
 *{
 margin:0;
@@ -19,20 +23,79 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
-font-family:'Oswald',sans-serif;
+background:#030303;
+font-family:'Inter',sans-serif;
 overflow-x:hidden;
 color:white;
+position:relative;
 }
 
-/* SCROLLBAR */
+/* =========================
+BACKGROUND FX
+========================= */
+
+.stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 30%, rgba(114,255,114,0.08), transparent 20%),
+radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04), transparent 20%),
+radial-gradient(circle at 50% 80%, rgba(114,255,114,0.05), transparent 25%);
+pointer-events:none;
+z-index:-3;
+animation:bgmove 16s infinite alternate ease-in-out;
+}
+
+@keyframes bgmove{
+
+0%{
+transform:scale(1) translateY(0px);
+}
+
+100%{
+transform:scale(1.05) translateY(-20px);
+}
+
+}
+
+.orb{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+pointer-events:none;
+z-index:-2;
+opacity:0.18;
+}
+
+.orb1{
+width:350px;
+height:350px;
+background:#72ff72;
+top:-100px;
+left:-100px;
+}
+
+.orb2{
+width:400px;
+height:400px;
+background:#00ffaa;
+bottom:-140px;
+right:-100px;
+}
+
+/* =========================
+SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
 width:8px;
 }
 
 ::-webkit-scrollbar-track{
-background:#050505;
+background:#030303;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -40,7 +103,9 @@ background:#72ff72;
 border-radius:20px;
 }
 
-/* INTRO */
+/* =========================
+INTRO
+========================= */
 
 .intro{
 position:fixed;
@@ -52,19 +117,18 @@ display:flex;
 justify-content:center;
 align-items:center;
 overflow:hidden;
-z-index:9999;
-transition:1.5s ease;
 background:black;
+z-index:99999;
+transition:1.5s ease;
 }
 
 .intro img{
 position:absolute;
 width:100%;
 height:100%;
-object-fit:contain;
-background:black;
-filter:blur(14px) brightness(0.35);
-transform:scale(1.02);
+object-fit:cover;
+filter:blur(18px) brightness(0.25);
+transform:scale(1.05);
 }
 
 .intro::before{
@@ -73,7 +137,6 @@ position:absolute;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.45);
-z-index:1;
 }
 
 .intro-content{
@@ -81,47 +144,50 @@ position:relative;
 z-index:2;
 text-align:center;
 padding:20px;
-animation:fadeUp 1.8s ease;
+animation:fadeUp 2s ease;
 }
 
 .intro h1{
-font-size:clamp(4rem,8vw,8rem);
-letter-spacing:8px;
+font-family:'Oswald',sans-serif;
+font-size:clamp(4rem,8vw,9rem);
+letter-spacing:10px;
 line-height:1;
-text-shadow:0 0 30px rgba(255,255,255,0.12);
+text-shadow:0 0 40px rgba(255,255,255,0.15);
 }
 
 .intro h2{
-font-size:clamp(1.5rem,3vw,3rem);
 margin-top:20px;
+font-size:clamp(1.2rem,3vw,3rem);
+letter-spacing:6px;
 color:#72ff72;
-letter-spacing:5px;
-text-shadow:0 0 20px rgba(114,255,114,0.4);
+text-shadow:0 0 20px rgba(114,255,114,0.35);
 }
 
 .enter-btn{
 margin-top:50px;
 padding:18px 60px;
-font-size:1.1rem;
-letter-spacing:4px;
 background:rgba(114,255,114,0.08);
-border:1px solid rgba(114,255,114,0.4);
+border:1px solid rgba(114,255,114,0.35);
 color:#72ff72;
+font-size:1rem;
+letter-spacing:4px;
 cursor:pointer;
-border-radius:14px;
+border-radius:16px;
 transition:0.4s;
 font-family:'Oswald',sans-serif;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 }
 
 .enter-btn:hover{
 background:#72ff72;
 color:black;
-transform:scale(1.05);
-box-shadow:0 0 40px rgba(114,255,114,0.25);
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 0 45px rgba(114,255,114,0.25);
 }
 
-/* MAIN */
+/* =========================
+MAIN SITE
+========================= */
 
 .main-site{
 opacity:0;
@@ -129,40 +195,42 @@ pointer-events:none;
 transition:1.5s ease;
 }
 
-/* NAV */
+/* =========================
+NAVBAR
+========================= */
 
 nav{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:22px 70px;
+padding:22px 6%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 background:rgba(0,0,0,0.35);
-backdrop-filter:blur(14px);
-z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,0.04);
+z-index:999;
 }
 
 .logo{
-font-size:1.7rem;
-font-weight:700;
+font-family:'Oswald',sans-serif;
+font-size:1.5rem;
 letter-spacing:3px;
 color:#72ff72;
 }
 
 nav ul{
 display:flex;
-gap:45px;
+gap:40px;
 list-style:none;
 }
 
 nav a{
 text-decoration:none;
 color:white;
-font-size:1rem;
+font-size:0.92rem;
 letter-spacing:2px;
 transition:0.3s;
 }
@@ -171,7 +239,50 @@ nav a:hover{
 color:#72ff72;
 }
 
-/* HERO */
+/* =========================
+SOCIAL BAR
+========================= */
+
+.social-bar{
+position:fixed;
+top:110px;
+right:28px;
+display:flex;
+flex-direction:column;
+gap:16px;
+z-index:999;
+}
+
+.social-bar a{
+width:58px;
+height:58px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+border-radius:18px;
+transition:0.35s;
+overflow:hidden;
+}
+
+.social-bar a:hover{
+transform:translateY(-4px) scale(1.06);
+background:rgba(114,255,114,0.12);
+box-shadow:0 0 35px rgba(114,255,114,0.15);
+border-color:rgba(114,255,114,0.25);
+}
+
+.social-bar img{
+width:30px;
+height:30px;
+object-fit:contain;
+}
+
+/* =========================
+HERO
+========================= */
 
 .hero{
 height:100vh;
@@ -181,17 +292,15 @@ justify-content:center;
 align-items:center;
 text-align:center;
 overflow:hidden;
-background:black;
 }
 
 .hero img{
 position:absolute;
 width:100%;
 height:100%;
-object-fit:contain;
-background:black;
-filter:blur(2px) brightness(0.45);
-transform:scale(1.02);
+object-fit:cover;
+filter:brightness(0.35);
+transform:scale(1.03);
 }
 
 .hero::before{
@@ -201,11 +310,10 @@ width:100%;
 height:100%;
 background:linear-gradient(
 to bottom,
-rgba(0,0,0,0.05),
-rgba(0,0,0,0.55),
-#050505
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.6),
+#030303
 );
-z-index:1;
 }
 
 .overlay{
@@ -215,111 +323,127 @@ padding:0 5%;
 }
 
 .main-title{
+font-family:'Oswald',sans-serif;
 font-size:clamp(4rem,8vw,8rem);
-font-weight:700;
-letter-spacing:7px;
+letter-spacing:8px;
 line-height:1;
-text-shadow:0 0 30px rgba(255,255,255,0.12);
+text-shadow:0 0 40px rgba(255,255,255,0.15);
 }
 
 .sub-title{
-font-size:clamp(1.5rem,3vw,3rem);
 margin-top:20px;
+font-size:clamp(1.2rem,3vw,2.5rem);
+letter-spacing:6px;
 color:#72ff72;
-letter-spacing:5px;
-text-shadow:0 0 20px rgba(114,255,114,0.4);
 }
 
-/* SECTION */
+/* =========================
+SECTIONS
+========================= */
 
 section{
-padding:120px 10%;
+padding:130px 10%;
 }
 
 .section-title{
+font-family:'Oswald',sans-serif;
 font-size:3rem;
-margin-bottom:40px;
+letter-spacing:4px;
+margin-bottom:50px;
 padding-left:18px;
 border-left:5px solid #72ff72;
-letter-spacing:3px;
 }
 
 .about p{
-font-size:1.2rem;
+font-size:1.08rem;
 line-height:2;
 color:#bdbdbd;
 max-width:950px;
 }
 
-/* PROJECT CARD */
+/* =========================
+PROJECT CARDS
+========================= */
 
 .project-card{
 display:grid;
 grid-template-columns:1fr 1fr;
-background:#0b0b0b;
 margin-bottom:60px;
-border-radius:24px;
-overflow:hidden;
+background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.05);
-transition:0.4s;
-box-shadow:0 0 25px rgba(0,0,0,0.3);
+border-radius:28px;
+overflow:hidden;
+backdrop-filter:blur(14px);
+transition:0.45s;
+opacity:0;
+transform:translateY(50px);
+}
+
+.project-card.show{
+opacity:1;
+transform:translateY(0px);
 }
 
 .project-card:hover{
 transform:translateY(-8px);
-box-shadow:0 0 50px rgba(114,255,114,0.08);
+box-shadow:0 0 60px rgba(114,255,114,0.08);
 }
 
 .project-card img{
 width:100%;
 height:100%;
-min-height:400px;
+min-height:450px;
 object-fit:cover;
-transition:0.5s;
+transition:0.6s;
 }
 
 .project-card:hover img{
-transform:scale(1.03);
+transform:scale(1.05);
 }
 
 .project-info{
-padding:60px;
+padding:70px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 }
 
 .project-info h3{
+font-family:'Oswald',sans-serif;
 font-size:3rem;
-margin-bottom:25px;
 color:#72ff72;
+margin-bottom:25px;
 }
 
 .project-info p{
-line-height:1.8;
-color:#9f9f9f;
-margin-bottom:25px;
+line-height:1.9;
+color:#b0b0b0;
+margin-bottom:30px;
 }
 
 .project-info a{
-color:#72ff72;
 text-decoration:none;
-font-size:1.1rem;
-margin:10px 0;
+color:#72ff72;
+font-size:1rem;
+letter-spacing:2px;
+margin-top:10px;
 transition:0.3s;
 }
 
 .project-info a:hover{
-padding-left:10px;
+padding-left:12px;
 }
 
-/* SERVER */
+/* =========================
+SERVER BOX
+========================= */
 
 .server-box{
-background:#0b0b0b;
+background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.05);
-border-radius:22px;
+border-radius:28px;
 padding:50px;
+backdrop-filter:blur(14px);
 }
 
 .server-box a{
@@ -330,22 +454,24 @@ text-decoration:none;
 
 .server-box p{
 margin-top:20px;
-color:#b0b0b0;
-line-height:1.8;
+line-height:1.9;
+color:#bdbdbd;
 }
 
 .discord-widget{
 margin-top:35px;
-border-radius:20px;
 overflow:hidden;
+border-radius:20px;
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
 padding:80px 20px;
 text-align:center;
-color:#888;
+color:#777;
 line-height:2;
 margin-top:100px;
 border-top:1px solid rgba(255,255,255,0.05);
@@ -355,7 +481,9 @@ footer span{
 color:#72ff72;
 }
 
-/* ANIM */
+/* =========================
+ANIMATIONS
+========================= */
 
 @keyframes fadeUp{
 
@@ -371,12 +499,14 @@ transform:translateY(0px);
 
 }
 
-/* MOBILE */
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:900px){
 
 nav{
-padding:14px 16px;
+padding:16px;
 flex-direction:column;
 gap:12px;
 }
@@ -394,95 +524,87 @@ justify-content:center;
 
 nav a{
 font-size:0.72rem;
-letter-spacing:1px;
 }
 
-.hero{
-padding-top:120px;
+.social-bar{
+top:auto;
+bottom:18px;
+right:50%;
+transform:translateX(50%);
+flex-direction:row;
+padding:10px 14px;
+background:rgba(0,0,0,0.35);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:20px;
+backdrop-filter:blur(18px);
+}
+
+.social-bar a{
+width:46px;
+height:46px;
+border-radius:14px;
+}
+
+.social-bar img{
+width:24px;
+height:24px;
 }
 
 .main-title{
-font-size:2.6rem;
-line-height:1.1;
-letter-spacing:3px;
-padding:0 10px;
+font-size:2.7rem;
+letter-spacing:4px;
 }
 
 .sub-title{
-font-size:1.1rem;
-letter-spacing:2px;
-padding:0 10px;
+font-size:1rem;
+letter-spacing:3px;
 }
 
 .intro h1{
-font-size:2.7rem;
-letter-spacing:3px;
-line-height:1.1;
+font-size:2.8rem;
+letter-spacing:4px;
 }
 
 .intro h2{
-font-size:1.1rem;
+font-size:1rem;
 letter-spacing:2px;
 }
 
 .enter-btn{
 padding:14px 34px;
-font-size:0.95rem;
-margin-top:35px;
+font-size:0.9rem;
 }
 
 section{
-padding:70px 6%;
+padding:80px 6%;
 }
 
 .section-title{
-font-size:1.6rem;
-margin-bottom:25px;
-padding-left:12px;
-}
-
-.about p{
-font-size:0.95rem;
-line-height:1.9;
+font-size:1.8rem;
 }
 
 .project-card{
 grid-template-columns:1fr;
-border-radius:18px;
-margin-bottom:35px;
 }
 
 .project-card img{
-min-height:220px;
-max-height:280px;
-object-fit:cover;
+min-height:240px;
 }
 
 .project-info{
-padding:25px;
+padding:28px;
 }
 
 .project-info h3{
-font-size:1.7rem;
-margin-bottom:16px;
+font-size:1.8rem;
 }
 
 .project-info p{
 font-size:0.92rem;
-line-height:1.7;
-}
-
-.project-info a{
-font-size:0.95rem;
 }
 
 .server-box{
 padding:25px;
-}
-
-.server-box a{
-font-size:1rem;
-word-break:break-word;
 }
 
 .discord-widget iframe{
@@ -490,17 +612,22 @@ height:260px;
 }
 
 footer{
-font-size:0.8rem;
-padding:50px 20px;
-line-height:1.8;
+font-size:0.82rem;
+padding-bottom:120px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
+
+<div class="stars"></div>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
 
 <!-- INTRO -->
 
@@ -511,7 +638,7 @@ line-height:1.8;
 <div class="intro-content">
 
 <h1>JUICE & BITS LABS</h1>
-<h2>ANTI SPIRAL !</h2>
+<h2>ANTI SPIRAL</h2>
 
 <button class="enter-btn" onclick="enterSite()">
 LETS GO
@@ -521,11 +648,11 @@ LETS GO
 
 </div>
 
-<!-- MAIN SITE -->
+<!-- MAIN -->
 
 <div class="main-site" id="mainSite">
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <nav>
 
@@ -542,43 +669,70 @@ JUICE & BITS LABS
 
 </nav>
 
+<!-- SOCIAL BAR -->
+
+<div class="social-bar">
+
+<a href="https://discord.gg/GHhaWnztXf" target="_blank">
+<img src="discord-logo.png">
+</a>
+
+<a href="https://youtube.com/@anti_spiral_mc" target="_blank">
+<img src="youtube-logo.png">
+</a>
+
+<a href="https://www.patreon.com/cw/Antispiral0" target="_blank">
+<img src="patreon-logo.png">
+</a>
+
+<a href="https://mcpedl.com/antispira1/" target="_blank">
+<img src="mcpedl-logo.png">
+</a>
+
+<a href="https://legacy.curseforge.com/members/antiispiral/followers" target="_blank">
+<img src="curseforge-logo.png">
+</a>
+
+</div>
+
 <!-- HERO -->
 
-<div class="hero">
+<section class="hero">
 
 <img src="background.png">
 
 <div class="overlay">
 
 <div class="main-title">
-JUICE AND BITS LABS
+JUICE & BITS LABS
 </div>
 
 <div class="sub-title">
-ANTI SPIRAL !
+ATMOSPHERE • SHADERS • WORLDS
 </div>
 
 </div>
 
-</div>
+</section>
 
 <!-- ABOUT -->
 
 <section class="about">
 
 <div class="section-title">
-ABOUT ME ?
+ABOUT ME
 </div>
 
 <p>
 I'M ANTI SPIRAL — shader and atmosphere developer inside the Minecraft community.
 
-I focus on cinematic skies, volumetric fog, environmental mood, distant lighting, surreal worlds and experimental rendering systems.
+I create cinematic environments, volumetric skies, surreal fog systems, experimental rendering pipelines and dreamlike worlds inspired by silence, abandoned structures and atmospheric storytelling.
 
-Minecraft is simple, and that simplicity is what makes atmosphere powerful.
+Minecraft is simple.  
+That simplicity is what makes atmosphere powerful.
 
 This is not just graphics work.  
-It's about creating worlds that feel ancient, silent and alive.
+It is worldbuilding through light, atmosphere and emotion.
 </p>
 
 </section>
@@ -600,7 +754,7 @@ MY WORKS
 <h3>PROJECT 01</h3>
 
 <p>
-Volumetric lighting and cinematic atmospheric rendering experiments.
+Volumetric cloud rendering and cinematic lighting experiments inspired by surreal environments and distant storms.
 </p>
 
 <a href="#">
@@ -617,10 +771,10 @@ VIEW PROJECT —
 
 <div class="project-info">
 
-<h3>NEXT PROJECT</h3>
+<h3>PROJECT 02</h3>
 
 <p>
-Dreamlike shader environment inspired by silence and abandoned worlds.
+Experimental atmosphere system focused on environmental storytelling and dreamlike rendering.
 </p>
 
 <a href="#">
@@ -648,8 +802,7 @@ discord.gg/GHhaWnztXf
 </a>
 
 <p>
-Join the Juice & Bits community.  
-Shaders, rendering, atmosphere experiments and Minecraft visual development.
+Join the Juice & Bits community for shaders, rendering research and cinematic atmosphere experiments.
 </p>
 
 <div class="discord-widget">
@@ -676,21 +829,19 @@ frameborder="0">
 LINKS
 </div>
 
-<!-- YOUTUBE -->
-
 <div class="project-card">
 
-<img src="background.png">
+<img src="youtube-banner.png">
 
 <div class="project-info">
 
 <h3>YOUTUBE</h3>
 
 <p>
-Shader showcases, cinematic environments and atmosphere experiments.
+Shader showcases, cinematic Minecraft worlds and rendering experiments.
 </p>
 
-<a href="https://youtube.com/@anti_spiral_mc?si=VK4hOmcjmBGAiRXZ" target="_blank">
+<a href="https://youtube.com/@anti_spiral_mc" target="_blank">
 OPEN CHANNEL —
 </a>
 
@@ -698,18 +849,16 @@ OPEN CHANNEL —
 
 </div>
 
-<!-- PATREON -->
-
 <div class="project-card">
 
-<img src="project1.png">
+<img src="patreon-banner.png">
 
 <div class="project-info">
 
 <h3>PATREON</h3>
 
 <p>
-Support future shader development and rendering experiments.
+Support future atmosphere systems and experimental visual development.
 </p>
 
 <a href="https://www.patreon.com/cw/Antispiral0" target="_blank">
@@ -720,18 +869,16 @@ SUPPORT —
 
 </div>
 
-<!-- MCPEDL -->
-
 <div class="project-card">
 
-<img src="project2.png">
+<img src="mcpedl-banner.png">
 
 <div class="project-info">
 
 <h3>MCPEDL</h3>
 
 <p>
-Minecraft Bedrock shader releases and projects.
+Minecraft Bedrock shader releases and project downloads.
 </p>
 
 <a href="https://mcpedl.com/antispira1/" target="_blank">
@@ -742,18 +889,16 @@ OPEN PAGE —
 
 </div>
 
-<!-- CURSEFORGE -->
-
 <div class="project-card">
 
-<img src="background.png">
+<img src="curseforge-banner.png">
 
 <div class="project-info">
 
 <h3>CURSEFORGE</h3>
 
 <p>
-Project uploads and shader experiments.
+Project uploads, shader archives and experimental builds.
 </p>
 
 <a href="https://legacy.curseforge.com/members/antiispiral/followers" target="_blank">
@@ -789,6 +934,26 @@ document.getElementById("mainSite").style.opacity = "1";
 document.getElementById("mainSite").style.pointerEvents = "all";
 
 }
+
+/* REVEAL ANIMATION */
+
+const cards = document.querySelectorAll('.project-card');
+
+window.addEventListener('scroll', () => {
+
+cards.forEach(card => {
+
+const top = card.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+card.classList.add('show');
+
+}
+
+});
+
+});
 
 </script>
 
