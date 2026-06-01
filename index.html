@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANTISPIRAL</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#05070d;
+    color:white;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:120px 25px;
+}
+
+h1{
+    font-size:4rem;
+    letter-spacing:6px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#7f8ea3;
+    margin-bottom:40px;
+    font-size:1.1rem;
+}
+
+p{
+    line-height:1.9;
+    font-size:1.05rem;
+    color:#d0d7e2;
+}
+
+.glow{
+    color:#8ebdff;
+    text-shadow:0 0 15px rgba(142,189,255,.5);
+}
+
+.section{
+    margin-top:70px;
+}
+
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(8px);
+}
+
+footer{
+    margin-top:100px;
+    color:#5e6877;
+    font-size:.9rem;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="container">
+
+<h1 class="glow">ANTISPIRAL</h1>
+
+<div class="subtitle">
+Shader Developer • Mod Creator • Atmospheric Engineer
+</div>
+
+<div class="card">
+
+<p>
+I’m ANTISPIRAL — a shader and mod developer within the Minecraft community, focused on atmospheric visuals, rendering systems, procedural environments, and experimental world enhancement.
+</p>
+
+<p>
+Most of my work revolves around pushing Minecraft beyond its original visual limitations while still respecting the soul of the game. I experiment with volumetric clouds, weather systems, cinematic fog, sky rendering, lighting behavior, procedural noise, material systems, and environmental immersion.
+</p>
+
+<p>
+My projects are inspired by storms, abandoned structures, deep oceans, astronomy, silence, surreal landscapes, and the strange feeling of exploring worlds that seem older than the player itself.
+</p>
+
+<p>
+This isn’t just about graphics for me.  
+It’s about atmosphere.  
+Memory.  
+Scale.  
+And creating worlds that feel alive long before someone enters them.
+</p>
+
+</div>
+
+<div class="section card">
+
+<h2 class="glow">Current Focus</h2>
+
+<p>
+• Minecraft Bedrock shaders<br>
+• GLSL experimentation<br>
+• Volumetric cloud rendering<br>
+• Material binary systems<br>
+• Procedural atmosphere simulation<br>
+• Stylized cinematic visuals<br>
+• Reverse engineering rendering behavior
+</p>
+
+</div>
+
+<footer>
+Mine on.
+</footer>
+
+</div>
+
+<script>
+
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+
+for(let i=0;i<150;i++){
+    stars.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*1.5,
+        s:Math.random()*0.5
+    });
+}
+
+function animate(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="white";
+
+    stars.forEach(star=>{
+        ctx.beginPath();
+        ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
+        ctx.fill();
+
+        star.y += star.s;
+
+        if(star.y > canvas.height){
+            star.y = 0;
+            star.x = Math.random()*canvas.width;
+        }
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+  </html>
